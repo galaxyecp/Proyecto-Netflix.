@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <title>Netnet</title>
+<style>
+  @font-face {
+    font-family: 'Netflix';
+    src: url('../../font/AvenirNext,ttc');
+    font-weight: 400;
+    font-style: normal;
+}
+.credits {
+    font-family: system-ui; 
+    background-color: black;
+    font-size: 11px;
+    color: white;
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+  .credits a {
+    color: #F865B0;
+    text-decoration: none;
+  }
+body {
+  background: black;
+  color:white;
+  margin: 0;
+  font-family: 'Netflix';
+  padding-bottom: 108px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.header {
+  padding-bottom: 100px;
+  border: 1px solid purpl; 
+  padding: 15 px 15px 100px;
+  position: relative;
+  z-index: 2;
+  background-image: linear-gradient(to bottom, 0% black, black 80%, rgba(0,0,0, .5) 90% transparent 100%);
+}
+.navigation-item {
+    list-style: none;
+    border: 1px solid yello;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navigation {
+    padding: 0; 
+    margin: 0;
+    border: 1px solid re;
+    display: grid;
+    grid-auto-columns: 100px;
+    grid-auto-flow: column; 
+    justify-content: space-around;
+}
+
+.featured {
+  margin-top: -90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-details {
+  border: 1px solid red;
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  right: 0; 
+  background-image: linear-gradient(to top, black 0%, black 0%, transparent 100%);
+}
+
+.tags {
+  border: 1px solid ellow;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.tag{
+  border: 1px solid ed;
+  display: flex;
+}
+
+.tag:before {
+  content:'•';
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+  
+.tag:firts-child::before {
+  display: none;
+}
+
+.featured-actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
+.button {
+border: 1px solid bue;
+background: white;
+display:flex;
+align-items: center;
+padding: 5px 1em 5px .5em;
+border: none;
+border-radius: 3px
+}
+
+.button::before{
+  border: 1px solid rd;
+  content: '';
+  display: inline-block;
+  width:25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.button-secondary{
+  background: none;
+  color: white;
+  border: 1px solid rd;
+  font-size: 1.1em;
+  min-width: 100px;
+  cursor:pointer;
+  border: none;
+}
+
+.button-secondary::before{
+  content:'';
+  display: block;
+  border: 1px solid geen;
+  width: 25px;
+  height: 25px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.icon-plus::before {
+  background: url(icons/plus.svg);
+}
+
+.icon-play::before {
+  background: url(icons/play.svg);
+}
+
+.icon-info::before {
+  background: url(icons/info.svg);
+}
+
+.footer {
+  border: 1px solid rd;
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+
+.list-content{
+  border: 1px solidred;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+.list-item{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.list-item:first-child{
+  margin: 0;
+}
+
+.list{
+  border: 1px solid gren;
+  padding: 0 1em;
+}
+
+main{
+  border: 1px solid re;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer {
+  border: 1px solid rd;
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background: black;
+  padding: 1em 0 0;
+}
+
+.tab-list{
+  border: 1px solid gren;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  List-style: none;
+  color: #6e6e6e;
+  padding-bottom: 1em 0 0;
+}
+
+.tab-list a{
+  color: #6e6e6e;
+}
+
+.tab-item{
+  border: 1px solidpurple;
+  text-align: center; 
+}
+
+.tab-item svg{
+  display: block;
+  margin: auto;
+}
+
+.tab-item path{
+  fill: #6e6e6e;
+}
+
+.tab-item:hover :is(path, span) {
+  fill:white;
+  color: white;
+}  
+
+  </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="images/logo-netflix.png " heigth="30" alt="Logo Netflix">
+      <nav>
+        <ul class="navigation">
+          <li class="navigation_item"><a href="#">Series</a></li>
+          <li class="navigation_item"><a href="#">Peliculas</a></li>
+          <li class="navigation_item"><a href="#">Mi lista</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    
+    
+  <div class="featured">
+
+    <video heigt="500" loop autoplay src="images/VID-20230601-WA0033.mp4"></video>
+    <ul class="tag">
+    <li class="tag">
+      surrealista
+    </li>
+    <li class="tag">
+      distopico
+    </li>
+    <li class="tag">
+      habil
+    </li>
+    <li class="tag">
+      siniestro
+    </li>
+    <li class="tag">
+      emocionante
+    </li>
+   </ul>
+   <div class="featured-actions">
+    <button class="button-secondary icon-plus">mi lista</button>
+    <button class="button icon-play">Reproducir</button>
+    <button class="button-secondary icon-info">Info</button>
+  </div>
+</div>
+
+<main>
+  <div class="list">
+    <h2 class="list-title">populares en netflix</h2> 
+    <div class="list-content">
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30.png" alt="Matrix">
+        </a>
+      </div>
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30-1.png" alt="Bob Esponja La pelicula">
+        </a>
+      </div>
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30-2.png" alt="El hombre Araña">
+        </a>
+      </div>
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30-3.png" alt="Como entrenar a tu dragon">
+        </a>
+      </div>
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30-5.png" alt="John Wick">
+        </a>
+      </div>
+      <div class="list-item">
+        <a href="#">
+          <img src="images/Rectangle 30-4.png" alt="Santa">
+        </a>
+      </div>
+    </div>
+  </div>
+<div class="list">
+<h2>series japonesas anime</h2>
+<div class="list-content">
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30.png" alt="Matrix">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-4.png" alt="Bob Esponja La pelicula">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-2.png" alt="El hombre Araña">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-3.png" alt="Como entrenar a tu dragon">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-5.png" alt="John Wick">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-4.png" alt="Santa">
+    </a>
+  </div>
+</div>
+</div>
+<div class="list">
+<h2>series de EE.UU. sobre crimenes</h2>
+<div class="list-content">
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30.png" alt="Matrix">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-3.png" alt="Bob Esponja La pelicula">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-2.png" alt="El hombre Araña">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-3.png" alt="Como entrenar a tu dragon">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-5.png" alt="John Wick">
+    </a>
+  </div>
+  <div class="list-item">
+    <a href="#">
+      <img src="images/Rectangle 30-4.png" alt="Santa">
+    </a>
+  </div>
+</div>
+</div>
+</main>
+
+<footer class="footer">
+  <ul class="tab-list">
+    <li class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12L12 2.09961L23 12H20V21H13V15H11V21H4V12H1ZM18 10.1914L12 4.79102L6 10.1914V19H9V13H15V19H18V11V10.1914Z" fill="white"/>
+        </svg>
+      <a href="#"><span>Inicio</span></a>
+    </li>
+    <li class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 5C2 3.897 2.897 3 4 3H20C21.103 3 22 3.897 22 5V14.4082L20 13.2852V5H4V19H12V21H4C2.897 21 2 20.103 2 19V5ZM14 14.1445C14 13.492 14.514 13.019 15.0859 13C15.2766 12.9937 15.4734 13.0378 15.6602 13.1426L23.4199 17.498C24.1939 17.932 24.1939 19.067 23.4199 19.502L15.6602 23.8574C14.9132 24.2764 14 23.7255 14 22.8555V14.1445ZM6.00195 9V7H8V9H6.00195ZM16 9V7H18V9H16ZM6 13V11H8V13H6ZM6 17V15H8V17H6Z" fill="white"/>
+        </g>
+        <defs>
+        <clipPath id="clip0">
+        <rect width="24" height="24" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+      <a href="#"><span>Proximamente</span></a>
+    </li>
+    <li class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 9C2 5.14585 5.14585 2 9 2C12.8541 2 16 5.14585 16 9C16 10.748 15.348 12.345 14.2812 13.5742L14.707 14H16L22 20L20 22L14 16V14.707L13.5742 14.2812C12.345 15.348 10.748 16 9 16C5.14585 16 2 12.8541 2 9ZM14 9C14 6.22673 11.7733 4 9 4C6.22673 4 4 6.22673 4 9C4 11.7733 6.22673 14 9 14C11.7733 14 14 11.7733 14 9Z" fill="white"/>
+        </svg>
+      <a href="#"><span>Buscar</span></a>
+    </li>
+    <li class="tab-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 3C10 2.448 10.448 2 11 2H13C13.552 2 14 2.448 14 3V11H18L12 17L6 11H10V3ZM2 22V20H22V22H2Z" fill="white"/>
+        </svg>
+      <a href="#"><span>Descargas</span></a>
+    </li>
+  </ul>
+<div class="credits">
+</div>
+</footer>
+    </div>
+    </body>
+    </html>
